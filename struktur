@@ -1,0 +1,11 @@
+Skapa en databas att spara samtliga reparationer i, den ska ha fält för alla uppgifter som behövs samt någon form av diverse-fält
+
+Python-kod för att skapa sida/formulär att dels påbörja en ny reparation, dels att uppdatera en pågående, söka liknande reparationer
+
+Dessa sidor kan vara separata filer som sen kan importeras i en huvudfil
+
+
+Databasen får en egen fil som skapar ett cursor-objekt och som importeras i början av huvudfilen
+
+
+
