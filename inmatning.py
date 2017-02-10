@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  conn.py
+#  inmatning.py
 #  
 #  Copyright 2017 Magnus Jönsson <magnus@debian>
 #  
@@ -22,15 +22,23 @@
 #  
 #  
 
+try:
+	
+	import pymysql
+	from conn import config
 
-config = {
-	'host':'localhost',
-	'port':3306,
-	'user':'totte',
-	'password':'tummetott',
-	'database':'replog'
-	}
+	cnx = pymysql.connect(**config)
+	cur = cnx.cursor()
+except pymysql.err.OperationalError:
+	sys.exit("Invalid input: Wrong username/password")
 
+
+cur.execute("SELECT * FROM reparation;")
+
+for r in cur:
+    print(r)
+cur.close()
+cnx.close()
 
 
 def main():
