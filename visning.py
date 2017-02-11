@@ -36,7 +36,7 @@ except pymysql.err.OperationalError:
 	sys.exit("Invalid input: Wrong username/password")
 
 kolumn = raw_input("Ange vilken kolumn du vill söka i: ")
-urval = raw_input("Ange den uppgift du vill se")
+urval = raw_input("Ange den uppgift du vill se: ")
 
 
 print(kolumn,urval)
@@ -45,6 +45,7 @@ sqlquery = ("SELECT * FROM reparation WHERE %s='%s';" % (kolumn,urval))
 
 try:
 	cur.execute(sqlquery)
+	print("Frågan kördes utan fel")
 except:
 	print("Det sket sig!")
 	
@@ -53,8 +54,6 @@ for Maskin_ID, Felkod, Maskintyp, Felbeskrivning, Kollade_Komponenter, Bytade_Ko
 	print(Maskin_ID, Felkod, Maskintyp, Felbeskrivning, Kollade_Komponenter, Bytade_Komponenter,Resultat)
 	
 
-for rad in cur:
-	print rad
 
 def main():
 	
