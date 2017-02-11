@@ -30,18 +30,33 @@ try:
 	import pymysql
 
 	cnx = pymysql.connect(**config)
+	cnx.autocommit(True)
 	cur = cnx.cursor()
 except pymysql.err.OperationalError:
 	sys.exit("Invalid input: Wrong username/password")
 
+mid = raw_input("Ange maskin-id: ")
+fkd = raw_input("Ange felkod: ")
+mty = raw_input("Ange maskintyp: ")
+fbg = raw_input("Ange felbeskrivning: ")
+kkp = raw_input("Ange kollade komponenter: ")
+bkp = raw_input("Ange bytade komponenter: ")
+ret = raw_input("Ange resultatet: ")
 
-cur.execute("SELECT * FROM reparation;")
 
-for r in cur:
-    print(r)
+sqlquery = ("INSERT INTO reparation VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');" % (mid, fkd, mty, fbg, kkp, bkp, ret))
+
+try:
+	cur.execute(sqlquery)
+	print("Uppgifterna inlagda")
+except:
+	print("Det sket sig")
+	
+
+
+
 cur.close()
 cnx.close()
-
 
 def main():
 	
