@@ -22,10 +22,12 @@
 #  
 #  
 
+from conn import config
+
+
 try:
 	
 	import pymysql
-	from conn import config
 
 	cnx = pymysql.connect(**config)
 	cur = cnx.cursor()
