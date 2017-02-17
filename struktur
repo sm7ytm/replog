@@ -7,5 +7,5 @@ Dessa sidor kan vara separata filer som sen kan importeras i en huvudfil
 
 Databasen får en egen fil som skapar ett cursor-objekt och som importeras i början av huvudfilen
 
-
-
+Inmatning till databasen sker i filen inmatning
+Urvalet av poster styrs med två frågor i filen visning
