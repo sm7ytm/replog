@@ -34,7 +34,7 @@ try:
     cur = cnx.cursor()
 except pymysql.err.OperationalError:
     print("Det gick inte")
-exit(0)
+    exit(0)
 
 kolumn = raw_input("Ange vilken kolumn du vill söka i: ")
 urval = raw_input("Ange den uppgift du vill se: ")
