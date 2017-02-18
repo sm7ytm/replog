@@ -33,7 +33,7 @@ try:
     cnx.autocommit(True)
     cur = cnx.cursor()
 except pymysql.err.OperationalError:
-    print("Det gick inte")
+    print("Det gick inte att ansluta till databasen")
     exit(0)
 
 kolumn = raw_input("Ange vilken kolumn du vill söka i: ")
